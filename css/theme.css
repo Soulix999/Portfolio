@@ -55,6 +55,11 @@ ul{
     z-index: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+.section.back-section{
+    z-index: 1;
 }
 
 .section.active{
@@ -176,6 +181,7 @@ ul{
     justify-content: center;
     align-items: center;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .side-bar .logo{
@@ -234,6 +240,7 @@ ul{
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .side-bar .nav-toggler span{
@@ -242,6 +249,10 @@ ul{
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+
+.side-bar .nav-toggler.open span{
+    background: transparent;
 }
 
 .side-bar .nav-toggler span::before{
@@ -254,6 +265,11 @@ ul{
     left: 0;
 }
 
+.side-bar .nav-toggler.open span::before{
+    transform: rotate(45deg);
+    top: 0;
+}
+
 .side-bar .nav-toggler span::after{
     content: '';
     height: 2px;
@@ -262,6 +278,11 @@ ul{
     position: absolute;
     top: 6px;
     left: 0;
+}
+
+.side-bar .nav-toggler.open span::after{
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 .side-bar nav{
@@ -425,7 +446,6 @@ h3.my-profession{
 }
 
 .about .about-content .personal-info .buttons .btn{
-    margin-right: 15px;
     margin-top: 10px;
 }
 
@@ -758,12 +778,35 @@ h3.my-profession{
 }
 
 @media (max-width: 1199px){
-    .aside{
+    .section .container{
+        padding-top: 70px;
+        
+    }
+    .side-bar{
         left: -270px;
     }
-    .main-content{
-        padding-left: 0;
+
+    .side-bar.open{
+        left: 0;
     }
+
+    .side-bar .nav-toggler{
+        display: flex;
+        left: 30px;
+    }
+
+    .side-bar .nav-toggler.open{
+        left: 300px;
+    }
+
+    .section{
+        left: 0;
+    }
+
+    .section.open{
+        left: 270px;
+    }
+
     .about .about-content .personal-info .info-item p span{
         display: block;
         margin-left: 0;
